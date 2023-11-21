@@ -9,6 +9,7 @@ import Footer from "./components/footer.js";
 import CopyRight from "./pages/copyright.jsx";
 import Contact from "./pages/contact"
 import Movies from "./pages/movies.jsx";
+import SeriesPage from "./pages/seriesPage.jsx";
 import "./index.css";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="copyright" element={<CopyRight />} />
         <Route path="/movie/:id" element={<OneMovie />} />
         <Route path="/tv/:id" element={<OneSerie />} />
+        <Route path="/series" element={<SeriesPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

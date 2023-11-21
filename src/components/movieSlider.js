@@ -1,6 +1,5 @@
 import React from "react";
 import MovieSingleCard from "./movieSingleCard";
-import SerieSingleCard from "./serieSingleCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -85,9 +84,9 @@ function MovieSlider({ url, title, name }) {
         }}
       >
         {data &&
-          data.map((movie, indx) => (
+          data.map((movie, indx, isSerie) => (
             <SwiperSlide key={indx}>
-              <MovieSingleCard movie={movie} />
+              <MovieSingleCard isSerie={isSerie} movie={movie} />
             </SwiperSlide>
           ))}
       </Swiper>

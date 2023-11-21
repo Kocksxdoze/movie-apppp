@@ -32,7 +32,7 @@ export default function Header() {
                 Movies
               </li>
             </Link>
-            <Link to={`/serials`}>
+            <Link to={`/series`}>
               <li className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white-600   cursor-pointer px-3 py-2.5 font-normal text-xm leading-3 rounded">
                 Series
               </li>

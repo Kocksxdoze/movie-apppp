@@ -2,12 +2,12 @@ import React from "react";
 import { Link, Flex, Box, Heading } from "@chakra-ui/react";
 import _ from "lodash";
 
-function MovieSingleCard({ movie, indx }) {
+function MovieSingleCard({ movie, indx, isSerie }) {
   const ranking = Math.round(movie.vote_average / 2);
 
   return (
     <div>
-      <Link href={`/movie/${movie.id}`} key={indx}>
+      <Link href={isSerie ? `/tv/${movie.id}` : `/movie/${movie.id}`} key={indx}>
         <Box
           height={{ base: 300, xl: 400 }}
           w={{ base: 200, xl: 270 }}

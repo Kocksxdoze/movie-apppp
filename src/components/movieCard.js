@@ -10,7 +10,7 @@ import {
     Button,
 } from '@chakra-ui/react'
 
-function MovieCard({ data }) {
+function MovieCard({ data, isSerie }) {
     return (
         <div>
             <Flex ml="100px">

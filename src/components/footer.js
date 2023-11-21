@@ -16,42 +16,42 @@ function Footer() {
     return (
         <div>
             <hr className='footerLine' />
-            <Flex >
-                <Box textAlign={"left"} display={"flex"} flexDir={"column"}>
-                    <Image className='logo' src='/img/logo.png' w={150} />
-                    <Text maxW={"50%"}>Filmlarga bo'lgan huquqlar ularning mualliflariga tegishli. Barcha filmlar faqat ma'lumot uchun taqdim etiladi. Ma'muriyat foydalanuvchilar tomonidan joylashtirilgan noqonuniy materiallar uchun javobgar emas! Har qanday film mualliflik huquqi egasining iltimosiga binoan olib tashlanadi
-                    </Text>
-                </Box>
-                <Flex>
-                    <Box >
-                        <Heading fontSize={"16px"}>Pages</Heading>
-                        <UnorderedList display={"flex"} flexDir={"column"}>
-                            <ListItem>The most watched movies</ListItem>
-                            <ListItem>Top Rated Movies</ListItem>
-                            <ListItem>Movies</ListItem>
-                            <ListItem>Serials</ListItem>
-                        </UnorderedList>
-                    </Box>
-                    <Box display={"flex"} flexDir={"column"}>
-                        <Heading fontSize={"16px"}>Our social networks</Heading>
-                        <UnorderedList display={"flex"} flexDir={"column"}>
-                            <ListItem>Serials</ListItem>
-                            <ListItem>Telegram</ListItem>
-                            <ListItem>Telegram</ListItem>
-                            <ListItem>Telegram</ListItem>
-                        </UnorderedList>
-                    </Box>
-                    <Box display={"flex"} flexDir={"column"}>
-                        <Heading fontSize={"16px"}>For reference</Heading>
-                        <UnorderedList display={"flex"} flexDir={"column"}>
-                            <ListItem>Telegram</ListItem>
-                            <ListItem>Telegram</ListItem>
-                            <ListItem>Telegram</ListItem>
-                            <ListItem>Telegram</ListItem>
-                        </UnorderedList>
-                    </Box>
-                </Flex>
-            </Flex>
+            <div className='footer'>
+                <div className='footerMain'>
+                    <img className='logo' src='/img/logo.png' />
+                    <p>Filmlarga bo'lgan huquqlar ularning mualliflariga tegishli. Barcha filmlar faqat ma'lumot uchun taqdim etiladi. Ma'muriyat foydalanuvchilar tomonidan joylashtirilgan noqonuniy materiallar uchun javobgar emas! Har qanday film mualliflik huquqi egasining iltimosiga binoan olib tashlanadi
+                    </p>
+                </div>
+                <div className='footerNavigation'>
+                    <div className='footernav'>
+                        <h4>Pages</h4>
+                        <ul>
+                            <li>The most watched movies</li>
+                            <li>Top Rated Movies</li>
+                            <li>Movies</li>
+                            <li>Serials</li>
+                        </ul>
+                    </div>
+                    <div className='footernav'>
+                        <h4>Our social networks</h4>
+                        <ul>
+                            <li>Telegram</li>
+                            <li>Instagram</li>
+                            <li>Facebook</li>
+                            <li>YouTube</li>
+                        </ul>
+                    </div>
+                    <div className='footernav'>
+                        <h4>For reference</h4>
+                        <ul>
+                            <li>Telegram</li>
+                            <li>Instagram</li>
+                            <li>Whatsapp</li>
+                            <li>Skype</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <Box textAlign={"center"} mt={20} mb={10}>© Filmberry.com - 2023
             </Box>
         </div >

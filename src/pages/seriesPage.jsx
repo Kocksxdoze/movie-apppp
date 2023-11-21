@@ -1,12 +1,12 @@
 import React from 'react'
 import MovieGrid from "../components/movieGrid";
-function Movies() {
+function SeriesPage() {
     return (
         <div>
+            <MovieGrid url={`/discover/tv`} />
 
-            <MovieGrid url={`/discover/movie`} />
         </div>
     )
 }
 
-export default Movies
+export default SeriesPage
