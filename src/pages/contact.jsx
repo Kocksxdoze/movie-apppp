@@ -15,23 +15,23 @@ function Contact() {
 
         <>
 
-            <Heading display={"flex"} flexDir={"row"} alignItems={"center"} justifyContent={"flex-start"} color={"white"} fontSize={"24px"} ml={220} mt={30} gap={2}>
+            <Heading display={"flex"} flexDir={"row"} alignItems={"center"} justifyContent={"flex-start"} color={"white"} fontSize={"24px"} ml={{ base: "0", md: "220px" }} mt={30} gap={2}>
                 <svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.87641 5.68912C8.42947 6.08825 8.42946 6.91175 7.87641 7.31088L1.5852 11.8512C0.92384 12.3285 0 11.8559 0 11.0403V1.95972C0 1.14411 0.923841 0.671535 1.58521 1.14883L7.87641 5.68912Z" fill="#E50914" />
                 </svg>
                 Connect with us
             </Heading>
-            <Text maxW={"538px"} textAlign={"left"} ml={220} fontSize={"15px"}>Hello, dear guest of our site! You can send us a message on any topic using the contact form below. We will review your request and write you an answer within 24 hours. Thank you for choosing our site!
+            <Text maxW={"538px"} textAlign={"left"} ml={{ base: "0", md: "220px" }} fontSize={"15px"}>Hello, dear guest of our site! You can send us a message on any topic using the contact form below. We will review your request and write you an answer within 24 hours. Thank you for choosing our site!
                 Source: filmberry.com</Text>
-            <Box display={"flex"} flexDir={"column"} ml={220} gap={6} color={"#E0E0E0"} mt={35}>
+            <Box display={"flex"} flexDir={"column"} ml={{ base: "0", md: "220px" }} gap={6} color={"#E0E0E0"} mt={35}>
 
-                <Input type='text' placeholder='Name *' w={"538px"} borderRadius={"6px"} bg={"#111111"} />
-                <Input type='text' placeholder='Email *' w={"538px"} borderRadius={"6px"} bg={"#111111"} />
+                <Input type='text' placeholder='Name *' w={{ base: "300px", md: "538px" }} borderRadius={"6px"} bg={"#111111"} />
+                <Input type='text' placeholder='Email *' w={{ base: "300px", md: "538px" }} borderRadius={"6px"} bg={"#111111"} />
 
-                <Textarea placeholder='Message' w={"538px"} h={160} borderRadius={"6px"} bg={"#111111"} />
+                <Textarea placeholder='Message' w={{ base: "400px", md: "538px" }} h={160} borderRadius={"6px"} bg={"#111111"} />
 
             </Box>
-            <Box display={"flex"} flexDir={"row"} justifyContent={"flex-start"} alignItems={"center"} gap={"60px"} ml={220} mt={35} h={45} fontWeight={600} fontFamily={"Montserrat"}>
+            <Box display={"flex"} flexDir={"row"} justifyContent={"flex-start"} alignItems={"center"} gap={"60px"} ml={{ base: "0", md: "220px" }} mt={35} h={45} fontWeight={600} fontFamily={"Montserrat"}>
                 <Button variant={"chip"} borderRadius={4} fontSize={14} fontWeight={600} w={270}>Send Message</Button>
                 <Box display={"flex"} flexDir={"row"} alignItems={"center"} gap={"20px"} >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

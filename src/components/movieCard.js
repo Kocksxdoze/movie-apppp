@@ -10,17 +10,17 @@ import {
     Button,
 } from '@chakra-ui/react'
 
-function MovieCard({ data, isSerie }) {
+function MovieCard({ data }) {
     return (
         <div>
-            <Flex ml="100px">
-                <Box>
-                    <Image borderRadius="15px" height="320px" src={`https://image.tmdb.org/t/p/w200${data.poster_path}`} />
+            <Flex ml={{ base: "0px", md: "100px" }} flexDirection={{ base: "column", md: "row" }} justifyContent={{ base: "center", md: "flex-start" }} alignItems={{ base: "center", md: "flex-start" }}>
+                <Box >
+                    <Image borderRadius="15px" height={"320px"} src={`https://image.tmdb.org/t/p/w200${data.poster_path}`} />
                 </Box>
                 <Box>
                     <Heading color="white" ml="10px" mb="12px">{data.title}</Heading>
 
-                    <UnorderedList display="flex" flexDir="column" gap={3} textAlign="left" ma="10px" fontWeight="600">
+                    <UnorderedList display="flex" flexDir="column" gap={3} textAlign="left" ma="10px" fontWeight="600" listStyleType={"none"}>
                         <ListItem>Name: <chakra.span color="primary">{data.original_title}</chakra.span></ListItem>
                         <ListItem>Time: <chakra.span color="primary">{data.runtime} minutes</chakra.span></ListItem>
                         <ListItem>Date: <chakra.span color="primary">{data.release_date.slice(0, 4)}</chakra.span></ListItem>

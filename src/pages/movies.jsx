@@ -4,7 +4,7 @@ function Movies() {
     return (
         <div>
 
-            <MovieGrid url={`/discover/movie`} />
+            <MovieGrid title={"Movies"} url={`/discover/movie`} />
         </div>
     )
 }

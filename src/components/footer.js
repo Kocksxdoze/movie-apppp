@@ -14,47 +14,51 @@ import {
 } from '@chakra-ui/react'
 function Footer() {
     return (
-        <div>
+        <Box >
             <hr className='footerLine' />
-            <div className='footer'>
-                <div className='footerMain'>
-                    <img className='logo' src='/img/logo.png' />
-                    <p>Filmlarga bo'lgan huquqlar ularning mualliflariga tegishli. Barcha filmlar faqat ma'lumot uchun taqdim etiladi. Ma'muriyat foydalanuvchilar tomonidan joylashtirilgan noqonuniy materiallar uchun javobgar emas! Har qanday film mualliflik huquqi egasining iltimosiga binoan olib tashlanadi
-                    </p>
-                </div>
-                <div className='footerNavigation'>
-                    <div className='footernav'>
-                        <h4>Pages</h4>
-                        <ul>
-                            <li>The most watched movies</li>
-                            <li>Top Rated Movies</li>
-                            <li>Movies</li>
-                            <li>Serials</li>
-                        </ul>
-                    </div>
-                    <div className='footernav'>
-                        <h4>Our social networks</h4>
-                        <ul>
-                            <li>Telegram</li>
-                            <li>Instagram</li>
-                            <li>Facebook</li>
-                            <li>YouTube</li>
-                        </ul>
-                    </div>
-                    <div className='footernav'>
-                        <h4>For reference</h4>
-                        <ul>
-                            <li>Telegram</li>
-                            <li>Instagram</li>
-                            <li>Whatsapp</li>
-                            <li>Skype</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <Box className='footer' flexDir={{ base: "column", md: "row" }} ml={{ base: "0px", md: "100px" }} >
+                <Box className='footerMain' maxW={{ base: "90%", md: "40%" }} justifyContent={{ base: "center", md: "flex-start" }} alignItems={{ base: "center", md: "flex-start" }} textAlign={{ base: "center", md: "left" }}>
+                    <Image className='logo' width={{ base: "200px", md: "200px" }} src='/img/logo.png' />
+                    <Text >Filmlarga bo'lgan huquqlar ularning mualliflariga tegishli. Barcha filmlar faqat ma'lumot uchun taqdim etiladi. Ma'muriyat foydalanuvchilar tomonidan joylashtirilgan noqonuniy materiallar uchun javobgar emas! Har qanday film mualliflik huquqi egasining iltimosiga binoan olib tashlanadi
+                    </Text>
+                </Box>
+                <Box className='footerNavigation' flex={3} >
+                    <Box className='footernav' ml={5} >
+                        <UnorderedList display={"flex"}
+                            textAlign={"left"}  // измените это значение на "left"
+                            alignItems={"flex-start"}
+                            justifyContent={"flex-start"}
+                        >
+                            <Text>Pages</Text>
+                            <ListItem>The most watched movies</ListItem>
+                            <ListItem>Top Rated Movies</ListItem>
+                            <ListItem>Movies</ListItem>
+                            <ListItem>Serials</ListItem>
+                        </UnorderedList>
+                    </Box>
+                    <Box className='footernav'>
+                        <UnorderedList>
+                            <Text>Our social networks</Text>
+                            <ListItem>Telegram</ListItem>
+                            <ListItem>Instagram</ListItem>
+                            <ListItem>Facebook</ListItem>
+                            <ListItem>YouTube</ListItem>
+                        </UnorderedList>
+                    </Box>
+                    <Box className='footernav'>
+                        <UnorderedList>
+                            <Text>For reference</Text>
+                            <ListItem>Telegram</ListItem>
+                            <ListItem>Instagram</ListItem>
+                            <ListItem>Whatsapp</ListItem>
+                            <ListItem>Skype</ListItem>
+                        </UnorderedList>
+                    </Box>
+                </Box>
+            </Box>
             <Box textAlign={"center"} mt={20} mb={10}>© Filmberry.com - 2023
             </Box>
-        </div >
+        </Box >
     )
 }
 

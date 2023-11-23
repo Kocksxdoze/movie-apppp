@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import fetcher from "../utils/fetcher";
 import { Heading } from "@chakra-ui/react";
 
-function MovieSlider({ url, title, name }) {
+function MovieSlider({ url, title, name, isSerie }) {
   const [data, setData] = useState([]);
   useEffect(() => {
     fetcher(url)
@@ -84,7 +84,7 @@ function MovieSlider({ url, title, name }) {
         }}
       >
         {data &&
-          data.map((movie, indx, isSerie) => (
+          data.map((movie, indx) => (
             <SwiperSlide key={indx}>
               <MovieSingleCard isSerie={isSerie} movie={movie} />
             </SwiperSlide>

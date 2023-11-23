@@ -9,6 +9,7 @@ import {
   MenuOptionGroup,
   MenuDivider,
   IconButton,
+  Image,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from '@chakra-ui/icons'
 export default function Header() {
@@ -18,7 +19,9 @@ export default function Header() {
       <div className="bg-transparent rounded  py-5 px-7">
         <nav className="flex justify-between">
           <div className="flex items-center space-x-10 lg:pr-96 pr-6">
-            <img src="/img/logo.png" />
+            <Link to={`/`}>
+              <Image src="/img/logo.png" />
+            </Link>
           </div>
           {/* For medium and plus sized devices */}
           <ul className="hidden md:flex flex-auto space-x-2">

@@ -6,14 +6,14 @@ import { useState } from "react";
 import TrandingSlider from "../components/trandingSlider/index"
 export default function Home() {
     const [categorieId, setCategorieId] = useState();
-
+    const [name, setName] = useState("")
     return (
         <>
             <TrandingSlider />
 
-            <Chips categorieId={categorieId} setId={setCategorieId} />
+            <Chips categorieId={categorieId} setId={setCategorieId} setName={setName} />
             {categorieId ?
-                < MovieGrid id={categorieId} title={categorieId} params={`&with_genres=${categorieId}`} url={`/discover/movie`} />
+                < MovieGrid id={categorieId} title={name} params={`&with_genres=${categorieId}`} url={`/discover/movie`} />
                 :
                 <>
                     <MovieSlider title={"Recommended"} url={"/movie/top_rated"} />

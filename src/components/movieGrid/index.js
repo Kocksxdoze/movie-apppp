@@ -63,7 +63,7 @@ function MovieGrid({ url, title, name, params, id }) {
             {name}
           </Heading>
 
-          <Flex flexWrap={"wrap"} gap={10}>
+          <Flex flexWrap={"wrap"} gap={10} justifyContent={{ base: "center", md: "flex-start" }}>
             {data &&
               data.map((movie, indx) => <MovieSingleCard movie={movie} />)}
           </Flex>

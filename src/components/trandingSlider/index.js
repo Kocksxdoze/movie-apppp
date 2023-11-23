@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import fetcher from '../../utils/fetcher';
-import { Spinner } from '@chakra-ui/react';
+import { Spinner, Text } from '@chakra-ui/react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css/pagination"
+import "swiper/css";
 function TrandingSlider() {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
@@ -26,20 +30,43 @@ function TrandingSlider() {
       return genre.id === id
     })
   }
-  console.log(genres)
+
+  const pagination = {
+    clickable: true,
+  }
+
   return (
     <>
       {!loading ?
-        <>
-          <div className="main">
-            <button className="top">TOP</button>
-            <h1>{data[0].title}</h1>
-            <p>{data[0].overview}</p>
-            <p>{data[0].release_date.slice(0, 4)} |  <span className="age">16+</span> | {getGenre(data[0].genre_ids[0]).name}</p>
-            <p>Seans 1 - Eplscode 1 - Genre comedy, detective, detective </p>
-            <button className="watch" variant={"chip"}>Watch</button>
-          </div>
-        </>
+        <Swiper
+          spaceBetween={0}
+          slidesPerView={1}
+          freeMode={true}
+          loop
+          modules={[Pagination]}
+          pagination={pagination}
+        >
+          {data.slice(0, 4).map((movie, indx) => (
+
+            <SwiperSlide key={indx}>
+              <>
+                <div style={{
+                  backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`
+                }} className="main" >
+
+                  <button className="top">TOP</button>
+                  <h1>{movie.title}</h1>
+                  <Text ml={"40px"} maxW={{ base: "100%", md: "60%" }}>{movie.overview}</Text>
+                  <Text ml={"40px"}>{movie.release_date.slice(0, 4)} |  <span className="age">16+</span> | {getGenre(movie.genre_ids[0])[0]?.name}</Text>
+                  <button className="watch" variant={"chip"}>Watch</button>
+                </div>
+              </>
+            </SwiperSlide>
+
+          ))}
+
+
+        </Swiper>
         : <Spinner
           thickness='6px'
           speed='0.65s'
@@ -51,6 +78,7 @@ function TrandingSlider() {
           mt={"15%"}
         />
       }
+
     </>
   )
 }

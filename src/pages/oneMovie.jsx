@@ -5,7 +5,7 @@ import MovieCard from "../components/movieCard";
 import Comments from "../components/comments";
 import Thoughts from "../components/thoughts";
 import { comment } from "../db/db";
-import { Button, Tag, Spinner } from "@chakra-ui/react";
+import { Button, Tag, Spinner, Box, Heading } from "@chakra-ui/react";
 
 function OneMovie() {
     const [data, setData] = useState([])
@@ -42,20 +42,20 @@ function OneMovie() {
         <div>
             {!loading ?
                 <>
-                    <div style={{
+                    <Box height={{ base: "950px", md: "570px" }} style={{
                         backgroundImage: `url(https://image.tmdb.org/t/p/w1280${data.backdrop_path})`
                     }} className="background_img">
 
-                    </div>
+                    </Box>
                     <MovieCard data={data} />
                     <div className='commentContainer'>
-                        <Tag mt={"100px"} fontSize={"24px"}
+                        <Heading mt={"150px"} fontSize={"36px"}
                             bg={"transparent"}
                             color={"white"}
                             fontWeight={"500"}
                             position={"relative"}
                             left={"-27%"}
-                        >Thoughts</Tag>
+                        >Thoughts</Heading>
                         <div className='inputCom'>
                             <img src='/img/avatar.png' />
                             <input

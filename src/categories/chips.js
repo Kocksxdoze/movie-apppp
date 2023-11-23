@@ -5,7 +5,7 @@ import { Container } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
-function Chips({ setId, categorieId }) {
+function Chips({ setId, categorieId, setName }) {
   const [data, setData] = useState([]);
   useEffect(() => {
     fetcher("/genre/movie/list")
@@ -55,7 +55,10 @@ function Chips({ setId, categorieId }) {
         >
           {data.map((oneGenre, indx) => (
             <SwiperSlide
-              onClick={() => setId(oneGenre.id)}
+              onClick={() => {
+                setId(oneGenre.id)
+                setName(oneGenre.name)
+              }}
               key={indx}
               dir="row"
             >

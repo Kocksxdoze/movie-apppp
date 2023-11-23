@@ -10,18 +10,18 @@ import {
     Button,
 } from '@chakra-ui/react'
 
-function SerieCard({ data }) {
+function MovieCard({ data }) {
     return (
         <div>
-            <Flex ml="100px">
-                <Box>
-                    <Image borderRadius="15px" height="320px" src={`https://image.tmdb.org/t/p/w200${data.poster_path}`} />
+            <Flex ml={{ base: "0px", md: "100px" }} flexDirection={{ base: "column", md: "row" }} justifyContent={{ base: "center", md: "flex-start" }} alignItems={{ base: "center", md: "flex-start" }}>
+                <Box >
+                    <Image borderRadius="15px" height={"320px"} src={`https://image.tmdb.org/t/p/w200${data.poster_path}`} />
                 </Box>
                 <Box>
-                    <Heading color="white" ml="10px" mb="12px">{data.title}</Heading>
+                    <Heading color="white" mb="12px">{data.name}</Heading>
 
-                    <UnorderedList display="flex" flexDir="column" gap={3} textAlign="left" ma="10px" fontWeight="600">
-                        <ListItem>Name: <chakra.span color="primary">{data.original_title}</chakra.span></ListItem>
+                    <UnorderedList display="flex" flexDir="column" gap={3} textAlign="left" ma="10px" fontWeight="600" listStyleType={"none"}>
+                        <ListItem>Name: <chakra.span color="primary">{data.name}</chakra.span></ListItem>
                         <ListItem>Time: <chakra.span color="primary">{data.runtime} minutes</chakra.span></ListItem>
                         {/* <ListItem>Date: <chakra.span color="primary">{data.release_date.slice(0, 4)}</chakra.span></ListItem> */}
                         <ListItem>Genre: <chakra.span color="primary">{data.genres.map((genre) => genre.name).join(', ')}</chakra.span></ListItem>
@@ -84,4 +84,4 @@ function SerieCard({ data }) {
     )
 }
 
-export default SerieCard
+export default MovieCard

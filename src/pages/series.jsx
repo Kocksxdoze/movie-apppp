@@ -4,8 +4,9 @@ import fetcher from "../utils/fetcher";
 import SerieCard from "../components/serieCard";
 import Comments from "../components/comments";
 import Thoughts from "../components/thoughts";
+import ThoughtsSerie from "../components/thoughtsSerie";
 import { comment } from "../db/db";
-import { Button, Tag, Spinner } from "@chakra-ui/react";
+import { Button, Tag, Spinner, Box } from "@chakra-ui/react";
 
 function OneSerie() {
     const [data, setData] = useState([])
@@ -42,11 +43,11 @@ function OneSerie() {
         <div>
             {!loading ?
                 <>
-                    <div style={{
+                    <Box height={{ base: "900px", md: "570px" }} style={{
                         backgroundImage: `url(https://image.tmdb.org/t/p/w1280${data.backdrop_path})`
                     }} className="background_img">
 
-                    </div>
+                    </Box>
                     <SerieCard data={data} />
                     <div className='commentContainer'>
                         <Tag mt={"100px"} fontSize={"24px"}
@@ -81,7 +82,7 @@ function OneSerie() {
                         ))}
                     </div>
 
-                    <Thoughts id={id} />
+                    <ThoughtsSerie id={id} />
 
                 </>
                 : <Spinner
