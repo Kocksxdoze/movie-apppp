@@ -27,6 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://kocksxdoze.github.io/movie-apppp/",
   "eslintConfig": {
     "extends": [
       "react-app",
