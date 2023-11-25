@@ -10,6 +10,7 @@ import CopyRight from "./pages/copyright.jsx";
 import Contact from "./pages/contact"
 import Movies from "./pages/movies.jsx";
 import SeriesPage from "./pages/seriesPage.jsx";
+import Search from "./pages/search.jsx";
 import "./index.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="movies" element={<Movies />} />
         <Route path="contact" element={<Contact />} />
         <Route path="copyright" element={<CopyRight />} />
+        <Route path="search" element={<Search />} />
         <Route path="/movie/:id" element={<OneMovie />} />
         <Route path="/tv/:id" element={<OneSerie />} />
         <Route path="/series" element={<SeriesPage />} />

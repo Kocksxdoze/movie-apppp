@@ -34,44 +34,56 @@ function MovieGrid({ url, title, name, params, id, isSerie }) {
           mt={"15%"}
         />
       ) : (
-        <>
-          <Heading
-            display={"flex"}
-            color={"white"}
-            textAlign={"left"}
-            flexDir={"row"}
-            alignItems={"center"}
-            justifyContent={"flex-start"}
-            pl={"2%"}
-            mt={"30px"}
-            pb={"30px"}
-            gap={2}
-          >
-            <svg
-              width="11"
-              height="12"
-              viewBox="0 0 11 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10.25 5.56699C10.5833 5.75944 10.5833 6.24056 10.25 6.43301L1.25 11.6292C0.916666 11.8216 0.5 11.5811 0.5 11.1962V0.803847C0.5 0.418947 0.916667 0.178385 1.25 0.370835L10.25 5.56699Z"
-                fill="#E50914"
-              />
-            </svg>
 
-            {title}
-            {name}
-          </Heading>
+        <>{data && data.length > 0 ? (
+          <>
+            {<>
+              <Heading
+                display={"flex"}
+                color={"white"}
+                textAlign={"left"}
+                flexDir={"row"}
+                alignItems={"center"}
+                justifyContent={"flex-start"}
+                pl={"2%"}
+                mt={"30px"}
+                pb={"30px"}
+                gap={2}
+              >
+                <svg
+                  width="11"
+                  height="12"
+                  viewBox="0 0 11 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.25 5.56699C10.5833 5.75944 10.5833 6.24056 10.25 6.43301L1.25 11.6292C0.916666 11.8216 0.5 11.5811 0.5 11.1962V0.803847C0.5 0.418947 0.916667 0.178385 1.25 0.370835L10.25 5.56699Z"
+                    fill="#E50914"
+                  />
+                </svg>
 
-          <Flex flexWrap={"wrap"} gap={{ base: 1, md: 10 }} justifyContent={{ base: "center", md: "flex-start" }}>
-            {data &&
-              data.map((movie, indx) => <MovieSingleCard isSerie={isSerie} movie={movie} />)
-            }
-          </Flex>
+                {title}
+                {name}
+              </Heading>
+
+              <Flex flexWrap={"wrap"} gap={{ base: 1, md: 10 }} justifyContent={{ base: "center", md: "flex-start" }}>
+                {data &&
+                  data.map((movie, indx) => <MovieSingleCard isSerie={isSerie} movie={movie} />)
+                }
+              </Flex>
+            </>}
+          </>
+        ) : "Type the correct name"}
+
+
+
         </>
-      )}
-    </div>
+
+
+      )
+      }
+    </div >
   );
 }
 
