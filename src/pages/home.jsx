@@ -4,7 +4,7 @@ import Chips from "../categories/chips";
 import MovieGrid from "../components/movieGrid";
 import { useState } from "react";
 import TrandingSlider from "../components/trandingSlider/index"
-export default function Home() {
+export default function Home({ }) {
     const [categorieId, setCategorieId] = useState();
     const [name, setName] = useState("")
     return (
@@ -18,7 +18,7 @@ export default function Home() {
                 <>
                     <MovieSlider title={"Recommended"} url={"/movie/top_rated"} />
                     <MovieSlider title={"Popular"} url={"/movie/popular"} />
-                    <MovieSlider isSerie={true} title={"Series"} url={"/tv/popular"} />
+                    <MovieSlider isSerie={true} title={"Series"} url={"/trending/tv/day"} />
                     <MovieSlider title={"Multifilms"} url={"/movie/upcoming"} />
                 </>
             }

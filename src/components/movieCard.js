@@ -20,7 +20,7 @@ function MovieCard({ data }) {
                 <Box>
                     <Heading color="white" ml="10px" mb="12px">{data.title}</Heading>
 
-                    <UnorderedList display="flex" flexDir="column" gap={3} textAlign="left" ma="10px" fontWeight="600" listStyleType={"none"}>
+                    <UnorderedList display="flex" flexDir="column" gap={3} textAlign="left" ma="10px" fontWeight="600" listStyleType={"none"} alignItems={"flex-start"}>
                         <ListItem>Name: <chakra.span color="primary">{data.original_title}</chakra.span></ListItem>
                         <ListItem>Time: <chakra.span color="primary">{data.runtime} minutes</chakra.span></ListItem>
                         <ListItem>Date: <chakra.span color="primary">{data.release_date.slice(0, 4)}</chakra.span></ListItem>

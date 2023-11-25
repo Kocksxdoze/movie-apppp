@@ -6,7 +6,7 @@ function ThoughtsSerie({ id }) {
         <div>
             <MovieSlider
                 title={"Thoughts"}
-                url={`/tv/popular
+                url={`/tv/${id}/recommendations
 `}
             />
         </div>

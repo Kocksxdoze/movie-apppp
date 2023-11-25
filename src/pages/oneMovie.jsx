@@ -5,7 +5,7 @@ import MovieCard from "../components/movieCard";
 import Comments from "../components/comments";
 import Thoughts from "../components/thoughts";
 import { comment } from "../db/db";
-import { Button, Tag, Spinner, Box, Heading } from "@chakra-ui/react";
+import { Button, Tag, Spinner, Box, Heading, Input } from "@chakra-ui/react";
 
 function OneMovie() {
     const [data, setData] = useState([])
@@ -58,7 +58,12 @@ function OneMovie() {
                         >Thoughts</Heading>
                         <div className='inputCom'>
                             <img src='/img/avatar.png' />
-                            <input
+                            <Input
+                                border={"none"}
+                                outline={"none"}
+                                boxShadow={"0"}
+                                borderBottom={"1px solid #FFFFFF8C"}
+                                w={{ base: "auto", md: "855px" }}
                                 onChange={(e) => setComm(e.target.value)}
                                 className='typeCom'
                                 type='text'

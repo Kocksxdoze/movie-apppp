@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Profile from "./pages/profile";
-import Header from "./components/header";
+import Header from "./components/Layout/Header/header.js";
 import NotFound from "./pages/error.jsx";
 import OneMovie from "./pages/oneMovie";
 import OneSerie from "./pages/series.jsx";

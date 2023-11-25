@@ -3,7 +3,7 @@ import MovieGrid from "../components/movieGrid";
 function SeriesPage() {
     return (
         <div>
-            <MovieGrid title={"Series"} url={`/discover/tv`} />
+            <MovieGrid title={"Series"} isSerie={true} url={`/trending/tv/week`} />
 
         </div>
     )

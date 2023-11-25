@@ -1,12 +1,13 @@
 import React from "react";
 import MovieSingleCard from "../movieSingleCard";
+import SerieSingleCard from "../serieSingleCard";
 import "swiper/css";
 import { useState } from "react";
 import { useEffect } from "react";
 import fetcher from "../../utils/fetcher";
 import { Flex, Heading, Spinner } from "@chakra-ui/react";
 
-function MovieGrid({ url, title, name, params, id }) {
+function MovieGrid({ url, title, name, params, id, isSerie }) {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -63,9 +64,10 @@ function MovieGrid({ url, title, name, params, id }) {
             {name}
           </Heading>
 
-          <Flex flexWrap={"wrap"} gap={10} justifyContent={{ base: "center", md: "flex-start" }}>
+          <Flex flexWrap={"wrap"} gap={{ base: 1, md: 10 }} justifyContent={{ base: "center", md: "flex-start" }}>
             {data &&
-              data.map((movie, indx) => <MovieSingleCard movie={movie} />)}
+              data.map((movie, indx) => <MovieSingleCard isSerie={isSerie} movie={movie} />)
+            }
           </Flex>
         </>
       )}
