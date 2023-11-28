@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default async function fetcher(url, params) {
   const response = await axios.get(
-    `https://api.themoviedb.org/3${url}?${params ? params + "&include_adult=false" : "include_adult=false"}`,
+    `https://api.themoviedb.org/3${url}?${params ? params + "&include_adult=false&certification_country=US&certification.lte=PG-13" : "include_adult=false"}`,
     {
       method: "GET",
       headers: {

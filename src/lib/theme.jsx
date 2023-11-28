@@ -17,6 +17,14 @@ export const theme = extendTheme({
                     py: "10px",
                     fontWeight: "500"
                 },
+                disabled: {
+                    bg: "grey",
+                    color: "white",
+                    borderRadius: "500px",
+                    px: "30px",
+                    py: "10px",
+                    fontWeight: "500",
+                },
             },
             // 6. We can overwrite defaultProps
             defaultProps: {

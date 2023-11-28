@@ -7,7 +7,7 @@ function Search() {
 
     const query = searchParams.get('searchValue')
     return (
-        <div><MovieGrid url={"search/movie"} params={`query=${query}`} ></MovieGrid></div>
+        <div><MovieGrid url={"/search/movie"} params={`query=${query}`} ></MovieGrid></div>
     )
 }
 

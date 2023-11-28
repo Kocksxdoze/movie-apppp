@@ -5,13 +5,30 @@ import "swiper/css";
 import { useState } from "react";
 import { useEffect } from "react";
 import fetcher from "../../utils/fetcher";
-import { Flex, Heading, Spinner } from "@chakra-ui/react";
+import { Flex, Heading, Spinner, Button, Text } from "@chakra-ui/react";
 
 function MovieGrid({ url, title, name, params, id, isSerie }) {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(1)
+  const newParams = params + `&page=${page}`
+
+  const nextPage = () => {
+    setPage(page + 1)
+  }
+
+  const prevPage = () => {
+    if (page !== 1) {
+
+      setPage(page - 1)
+    }
+  }
+
   useEffect(() => {
-    fetcher(url, params)
+    setPage(1)
+  }, [id]);
+  useEffect(() => {
+    fetcher(url, newParams)
       .then((responseData) => {
         setData(responseData.results);
         setTimeout(() => {
@@ -19,7 +36,7 @@ function MovieGrid({ url, title, name, params, id, isSerie }) {
         }, 200);
       })
       .catch((err) => console.error("error:" + err));
-  }, [id]);
+  }, [id, page]);
   return (
     <div>
       {loading ? (
@@ -45,6 +62,7 @@ function MovieGrid({ url, title, name, params, id, isSerie }) {
                 flexDir={"row"}
                 alignItems={"center"}
                 justifyContent={"flex-start"}
+                size={"lg"}
                 pl={"2%"}
                 mt={"30px"}
                 pb={"30px"}
@@ -65,6 +83,8 @@ function MovieGrid({ url, title, name, params, id, isSerie }) {
 
                 {title}
                 {name}
+                <br />
+                Page: {page}
               </Heading>
 
               <Flex flexWrap={"wrap"} gap={{ base: 1, md: 10 }} justifyContent={{ base: "center", md: "flex-start" }}>
@@ -75,9 +95,11 @@ function MovieGrid({ url, title, name, params, id, isSerie }) {
             </>}
           </>
         ) : "Type the correct name"}
-
-
-
+          <Flex justifyContent={"center"} alignItems={"center"} mt={10} gap={3}>
+            <Button variant={page <= 1 ? "disabled" : "chip"} onClick={prevPage}>Prev</Button>
+            <h2 className="text-white" >{page}</h2>
+            <Button variant={"chip"} onClick={nextPage}>Next</Button>
+          </Flex>
         </>
 
 

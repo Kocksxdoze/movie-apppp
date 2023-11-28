@@ -5,6 +5,7 @@ import MovieCard from "../components/movieCard";
 import Comments from "../components/comments";
 import Thoughts from "../components/thoughts";
 import { comment } from "../db/db";
+import Video from "../components/VideoPlayer/video";
 import { Button, Tag, Spinner, Box, Heading, Input } from "@chakra-ui/react";
 
 function OneMovie() {
@@ -48,6 +49,8 @@ function OneMovie() {
 
                     </Box>
                     <MovieCard data={data} />
+
+                    <Video />
                     <div className='commentContainer'>
                         <Heading mt={"150px"} fontSize={"36px"}
                             bg={"transparent"}

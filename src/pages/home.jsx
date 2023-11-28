@@ -19,7 +19,7 @@ export default function Home({ }) {
                     <MovieSlider title={"Recommended"} url={"/movie/top_rated"} />
                     <MovieSlider title={"Popular"} url={"/movie/popular"} />
                     <MovieSlider isSerie={true} title={"Series"} url={"/trending/tv/day"} />
-                    <MovieSlider title={"Multifilms"} url={"/movie/upcoming"} />
+                    <MovieSlider title={"Other"} url={"/movie/upcoming"} />
                 </>
             }
 
