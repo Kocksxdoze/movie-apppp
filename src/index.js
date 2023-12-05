@@ -6,14 +6,17 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import { ChakraProvider } from '@chakra-ui/react';
 import { theme } from "./lib/theme"
+import { GlobalStateContext } from './content/LanguageContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ChakraProvider theme={theme}>
-        <App />
-      </ChakraProvider>
+      <GlobalStateContext.Provider value={"en"}>
+        <ChakraProvider theme={theme}>
+          <App />
+        </ChakraProvider>
+      </GlobalStateContext.Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

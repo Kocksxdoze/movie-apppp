@@ -1,8 +1,11 @@
 import axios from "axios";
 
-export default async function fetcher(url, params) {
+export default async function fetcher(url, params, lang) {
+  let defaultLang = lang ? lang : "en-US"
   const response = await axios.get(
-    `https://api.themoviedb.org/3${url}?${params ? params + "&include_adult=false&certification_country=US&certification.lte=PG-13" : "include_adult=false"}`,
+    `https://api.themoviedb.org/3${url}?${params
+      ? params + `&include_adult=false&certification_country=US&certification.lte=PG-13&language=${defaultLang}`
+      : `include_adult=false&certification_country=US&certification.lte=PG-13&language=${defaultLang}`}`,
     {
       method: "GET",
       headers: {

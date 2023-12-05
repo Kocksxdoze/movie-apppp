@@ -5,40 +5,41 @@ import MovieCard from "../components/movieCard";
 import Comments from "../components/comments";
 import Thoughts from "../components/thoughts";
 import { comment } from "../db/db";
+import { Button, Spinner, Box, Heading, Input, Flex } from "@chakra-ui/react";
 import Video from "../components/VideoPlayer/video";
-import { Button, Tag, Spinner, Box, Heading, Input } from "@chakra-ui/react";
-
+import { useTranslation } from "react-i18next";
+import { languageConverter } from "../utils/languageConverter";
 function OneMovie() {
     const [data, setData] = useState([])
+    const { i18n } = useTranslation();
+    const lang = languageConverter(i18n.language)
+    const [video, setVideo] = useState([])
     const [loading, setLoading] = useState(true)
     const [comm, setComm] = useState()
     const [commentsList, setCommentsList] = useState(comment)
     const location = useLocation()
     const id = location.pathname.replace(/^\D+/g, '')
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const responseData = await fetcher(`/movie/${id}`);
+        fetcher(`/movie/${id}`, null, lang)
+            .then((responseData) => {
                 setData(responseData);
-                setLoading(false);
-            } catch (error) {
-                console.log(error);
-            }
-        };
+                fetcher(`/movie/${id}/videos`)
+                    .then((responseData) => {
+                        setVideo(responseData)
+                    })
+                setTimeout(() => {
+                    setLoading(false)
+                }, 1000);
+            })
 
-        // Имитируем задержку в 2000 мс (2 секунды) с помощью setTimeout
-        const timeout = setTimeout(() => {
-            fetchData();
-        }, 200);
-
-        // Очищаем таймаут при размонтировании компонента
-        return () => clearTimeout(timeout);
+            .catch((err) => console.error("error:" + err));
     }, []);
-
 
     const addComment = () => {
         setCommentsList([...commentsList, { name: "User", comment: comm }])
     }
+
+
     return (
         <div>
             {!loading ?
@@ -48,11 +49,15 @@ function OneMovie() {
                     }} className="background_img">
 
                     </Box>
-                    <MovieCard data={data} />
+                    <MovieCard data={data} />  {video.results && video.results.length > 0 ?
+                        <Flex justifyContent={"center"} mt={100}>
+                            <Box w={800}>
+                                <Video video={video.results[0]} ></Video>
+                            </Box>
 
-                    <Video />
+                        </Flex> : null}
                     <div className='commentContainer'>
-                        <Heading mt={"150px"} fontSize={"36px"}
+                        <Heading fontSize={"36px"}
                             bg={"transparent"}
                             color={"white"}
                             fontWeight={"500"}
@@ -83,13 +88,16 @@ function OneMovie() {
                                 fontWeight={"600"}
                                 onClick={addComment}>Add</Button>
                         </div>
+
                         {commentsList.map((com) => (
                             <Comments data={com} />
 
                         ))}
                     </div>
 
+
                     <Thoughts id={id} />
+
 
                 </>
                 : <Spinner

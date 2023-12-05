@@ -12,6 +12,7 @@ import Movies from "./pages/movies.jsx";
 import SeriesPage from "./pages/seriesPage.jsx";
 import Search from "./pages/search.jsx";
 import "./index.css";
+import "./i18n.js";
 
 function App() {
   return (

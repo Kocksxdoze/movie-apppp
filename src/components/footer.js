@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
     Flex,
     Box,
@@ -13,13 +14,15 @@ import {
 
 } from '@chakra-ui/react'
 function Footer() {
+    const { t } = useTranslation()
     return (
         <Box >
             <hr className='footerLine' />
             <Box className='footer' flexDir={{ base: "column", md: "row" }} ml={{ base: "0px", md: "100px" }} >
                 <Box className='footerMain' maxW={{ base: "90%", md: "40%" }} justifyContent={{ base: "center", md: "flex-start" }} alignItems={{ base: "center", md: "flex-start" }} textAlign={{ base: "center", md: "left" }}>
                     <Image className='logo' width={{ base: "200px", md: "200px" }} src='/img/logo.png' />
-                    <Text >Filmlarga bo'lgan huquqlar ularning mualliflariga tegishli. Barcha filmlar faqat ma'lumot uchun taqdim etiladi. Ma'muriyat foydalanuvchilar tomonidan joylashtirilgan noqonuniy materiallar uchun javobgar emas! Har qanday film mualliflik huquqi egasining iltimosiga binoan olib tashlanadi
+                    <Text >{t("footerInfo")}
+
                     </Text>
                 </Box>
                 <Box className='footerNavigation' flex={3} >
@@ -29,29 +32,29 @@ function Footer() {
                             alignItems={"flex-start"}
                             justifyContent={"flex-start"}
                         >
-                            <Text>Pages</Text>
-                            <ListItem>The most watched movies</ListItem>
-                            <ListItem>Top Rated Movies</ListItem>
-                            <ListItem>Movies</ListItem>
-                            <ListItem>Serials</ListItem>
+                            <Text>{t("Pages")}</Text>
+                            <ListItem>{t("The most watched movies")}</ListItem>
+                            <ListItem>{t("Top Rated Movies")}</ListItem>
+                            <ListItem>{t("Movies")}</ListItem>
+                            <ListItem>{t("Serials")}</ListItem>
                         </UnorderedList>
                     </Box>
                     <Box className='footernav'>
                         <UnorderedList>
-                            <Text>Our social networks</Text>
-                            <ListItem>Telegram</ListItem>
-                            <ListItem>Instagram</ListItem>
-                            <ListItem>Facebook</ListItem>
-                            <ListItem>YouTube</ListItem>
+                            <Text>{t("Our social networks")}</Text>
+                            <ListItem>{t("Telegram")}</ListItem>
+                            <ListItem>{t("Instagram")}</ListItem>
+                            <ListItem>{t("Facebook")}</ListItem>
+                            <ListItem>{t("YouTube")}</ListItem>
                         </UnorderedList>
                     </Box>
                     <Box className='footernav'>
                         <UnorderedList>
-                            <Text>For reference</Text>
-                            <ListItem>Telegram</ListItem>
-                            <ListItem>Instagram</ListItem>
-                            <ListItem>Whatsapp</ListItem>
-                            <ListItem>Skype</ListItem>
+                            <Text>{t("For reference")}</Text>
+                            <ListItem>{t("Telegram")}</ListItem>
+                            <ListItem>{t("Instagram")}</ListItem>
+                            <ListItem>{t("Whatsapp")}</ListItem>
+                            <ListItem>{t("Skype")}</ListItem>
                         </UnorderedList>
                     </Box>
                 </Box>

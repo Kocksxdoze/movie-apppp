@@ -5,12 +5,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css/pagination"
 import "swiper/css";
+import { useTranslation } from 'react-i18next';
+import { languageConverter } from '../../utils/languageConverter';
 function TrandingSlider() {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [genres, setGenres] = useState([])
+  const { t, i18n } = useTranslation()
+  const lang = languageConverter(i18n.language)
   useEffect(() => {
-    fetcher("/movie/popular")
+    fetcher("/movie/popular", null, lang)
       .then((responseData) => {
         setData(responseData.results);
         fetcher("/genre/movie/list")

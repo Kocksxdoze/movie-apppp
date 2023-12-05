@@ -1,18 +1,19 @@
 import React from "react";
 import MovieSingleCard from "../movieSingleCard";
-import SerieSingleCard from "../serieSingleCard";
 import "swiper/css";
 import { useState } from "react";
 import { useEffect } from "react";
 import fetcher from "../../utils/fetcher";
-import { Flex, Heading, Spinner, Button, Text } from "@chakra-ui/react";
-
+import { Flex, Heading, Spinner, Button } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
+import { languageConverter } from "../../utils/languageConverter";
 function MovieGrid({ url, title, name, params, id, isSerie }) {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1)
   const newParams = params + `&page=${page}`
-
+  const { t, i18n } = useTranslation()
+  const lang = languageConverter(i18n.language)
   const nextPage = () => {
     setPage(page + 1)
   }
@@ -28,7 +29,7 @@ function MovieGrid({ url, title, name, params, id, isSerie }) {
     setPage(1)
   }, [id]);
   useEffect(() => {
-    fetcher(url, newParams)
+    fetcher(url, newParams, lang)
       .then((responseData) => {
         setData(responseData.results);
         setTimeout(() => {
@@ -81,10 +82,10 @@ function MovieGrid({ url, title, name, params, id, isSerie }) {
                   />
                 </svg>
 
-                {title}
-                {name}
+                {t(title)}
+                {t(name)}
                 <br />
-                Page: {page}
+                {t("Page")}: {page}
               </Heading>
 
               <Flex flexWrap={"wrap"} gap={{ base: 1, md: 10 }} justifyContent={{ base: "center", md: "flex-start" }}>
@@ -96,9 +97,9 @@ function MovieGrid({ url, title, name, params, id, isSerie }) {
           </>
         ) : "Type the correct name"}
           <Flex justifyContent={"center"} alignItems={"center"} mt={10} gap={3}>
-            <Button variant={page <= 1 ? "disabled" : "chip"} onClick={prevPage}>Prev</Button>
+            <Button variant={page <= 1 ? "disabled" : "chip"} onClick={prevPage}>{t("Prev")}</Button>
             <h2 className="text-white" >{page}</h2>
-            <Button variant={"chip"} onClick={nextPage}>Next</Button>
+            <Button variant={"chip"} onClick={nextPage}>{t("Next")}</Button>
           </Flex>
         </>
 

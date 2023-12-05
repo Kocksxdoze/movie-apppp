@@ -1,16 +1,28 @@
-import React from 'react'
-import Plyr from 'plyr-react'
-import "plyr-react/plyr.css"
+import React from "react";
+import Plyr from "plyr-react";
+import { useRef } from "react";
+import "plyr-react/plyr.css";
 
-function Video() {
+function Video({ video }) {
+    const ref = useRef()
     return (
         <div>
-            <Plyr type="youtube"
-                videoId=""
-
-            />
+            {video ? (
+                <Plyr
+                    // ref={ref}
+                    source={{
+                        type: "video",
+                        sources: [
+                            {
+                                src: video.key,
+                                provider: "youtube",
+                            },
+                        ],
+                    }}
+                />
+            ) : null}
         </div>
-    )
+    );
 }
 
-export default Video
+export default Video;

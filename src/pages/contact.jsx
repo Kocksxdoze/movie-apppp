@@ -1,7 +1,6 @@
 import React from 'react'
 import {
     Box,
-    Image,
     Heading,
     Button,
     Text,
@@ -9,8 +8,9 @@ import {
     Textarea,
 
 } from '@chakra-ui/react'
-
+import { useTranslation } from 'react-i18next'
 function Contact() {
+    const { t } = useTranslation()
     return (
 
         <>
@@ -21,7 +21,7 @@ function Contact() {
                 </svg>
                 Connect with us
             </Heading>
-            <Text maxW={"538px"} textAlign={"left"} ml={{ base: "0", md: "220px" }} fontSize={"15px"}>Hello, dear guest of our site! You can send us a message on any topic using the contact form below. We will review your request and write you an answer within 24 hours. Thank you for choosing our site!
+            <Text maxW={"538px"} textAlign={"left"} ml={{ base: "0", md: "220px" }} fontSize={"15px"}>{t("inf")}
                 Source: filmberry.com</Text>
             <Box display={"flex"} flexDir={"column"} ml={{ base: "0", md: "220px" }} gap={6} color={"#E0E0E0"} mt={35}>
 
@@ -32,7 +32,7 @@ function Contact() {
 
             </Box>
             <Box display={"flex"} flexDir={"row"} justifyContent={"flex-start"} alignItems={"center"} gap={"60px"} ml={{ base: "0", md: "220px" }} mt={35} h={45} fontWeight={600} fontFamily={"Montserrat"}>
-                <Button variant={"chip"} borderRadius={4} fontSize={14} fontWeight={600} w={270}>Send Message</Button>
+                <Button variant={"chip"} borderRadius={4} fontSize={14} fontWeight={600} w={270}>{t("Send Message")}</Button>
                 <Box display={"flex"} flexDir={"row"} alignItems={"center"} gap={"20px"} >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.5 1H6.5C3.46243 1 1 3.46243 1 6.5V17.5C1 20.5376 3.46243 23 6.5 23H17.5C20.5376 23 23 20.5376 23 17.5V6.5C23 3.46243 20.5376 1 17.5 1Z" fill="white" />

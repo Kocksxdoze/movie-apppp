@@ -7,7 +7,8 @@ import Thoughts from "../components/thoughts";
 import ThoughtsSerie from "../components/thoughtsSerie";
 import { comment } from "../db/db";
 import { Button, Tag, Spinner, Box } from "@chakra-ui/react";
-
+import { useTranslation } from "react-i18next";
+import { languageConverter } from "../utils/languageConverter";
 function OneSerie() {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
@@ -15,10 +16,12 @@ function OneSerie() {
     const [commentsList, setCommentsList] = useState(comment)
     const location = useLocation()
     const id = location.pathname.replace(/^\D+/g, '')
+    const { i18n } = useTranslation();
+    const lang = languageConverter(i18n.language)
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const responseData = await fetcher(`/tv/${id}`);
+                const responseData = await fetcher(`/tv/${id}`, null, lang);
                 setData(responseData);
                 setLoading(false);
             } catch (error) {

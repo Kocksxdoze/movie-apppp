@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next'
 import {
     Menu,
     MenuButton,
@@ -24,6 +25,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 export default function HeaderMobile() {
+    const { t } = useTranslation()
     const [isOpen, setOpen] = useState(false)
     const [inputValue, setInputValue] = useState()
     const toast = useToast()

@@ -7,11 +7,16 @@ import { useState } from "react";
 import { useEffect } from "react";
 import fetcher from "../utils/fetcher";
 import { Heading } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
+import { languageConverter } from "../utils/languageConverter";
 
 function MovieSlider({ url, title, name, isSerie }) {
   const [data, setData] = useState([]);
+  const { i18n } = useTranslation();
+  const lang = languageConverter(i18n.language)
+  console.log(lang)
   useEffect(() => {
-    fetcher(url)
+    fetcher(url, null, lang)
       .then((responseData) => {
         setData(responseData.results);
       })

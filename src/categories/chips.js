@@ -5,10 +5,15 @@ import { Container } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
+import { useTranslation } from "react-i18next";
+import { languageConverter } from "../utils/languageConverter";
+
 function Chips({ setId, categorieId, setName }) {
   const [data, setData] = useState([]);
+  const { i18n } = useTranslation();
+  const lang = languageConverter(i18n.language)
   useEffect(() => {
-    fetcher("/genre/movie/list")
+    fetcher("/genre/movie/list", null, lang)
       .then((responseData) => {
         setData(responseData.genres);
       })
